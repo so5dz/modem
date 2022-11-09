@@ -1,0 +1,63 @@
+{
+    
+    "dataPort": 8633,
+    "extraPort": 8634,
+    "connections": {
+        "sound": {
+            "host": "localhost",
+            "port": 8611,
+            "inputSampleRate": 24000,
+            "outputSampleRate": 24000
+        },
+        "control": {
+            "enabled": false,
+            "host": "localhost",
+            "port": 8622
+        }
+    },
+    "initialModulation": "bell202",
+    "modulations": [
+        {
+            "name": "rtty",
+            "modem": "rtty",
+            "center": 1500,
+            "parameters": {
+                "speed": 45.45,
+                "shift": 170,
+                "uart": {
+                    "startBits": 1,
+                    "dataBits": 5,
+                    "parity": "none",
+                    "stopBits": 1.5
+                }
+            }
+        },
+	    {
+            "name": "rtty75",
+            "modem": "rtty",
+            "center": 1500,
+            "parameters": {
+                "speed": 75,
+                "shift": 170,
+                "uart": {
+                    "startBits": 1,
+                    "dataBits": 5,
+                    "parity": "none",
+                    "stopBits": 1.5
+                }
+            }
+        },
+        {
+            "name": "bell103",
+            "modem": "bell103",
+            "center": 1500,
+            "parameters": {}
+        },
+        {
+            "name": "bell202",
+            "modem": "bell202",
+            "center": 1600,
+            "parameters": {}
+        }
+    ]
+}
