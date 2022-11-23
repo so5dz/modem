@@ -33,7 +33,7 @@ func (app *ModemApplication) initializeSoundClient(cfg config.Config) {
 
 func (app *ModemApplication) initializeDataServer(cfg config.Config) {
 	log.Println("Initializing data server")
-	app.dataServer = tcp.NewServer(cfg.DataPort, tcp.TCPConnectionMode_Message)
+	app.dataServer = tcp.NewServer(cfg.DataPort, tcp.TCPConnectionMode_Stream)
 	app.dataServer.OnReceive(app.onDataReceived)
 }
 
