@@ -3,9 +3,9 @@ package modem
 import (
 	"math"
 
-	"github.com/iskrapw/modem/baudot"
-	"github.com/iskrapw/modem/uart"
 	"github.com/iskrapw/modem/utils"
+	"github.com/iskrapw/modem/utils/baudot"
+	"github.com/iskrapw/modem/utils/uart"
 )
 
 type RTTYModem struct {
@@ -108,6 +108,10 @@ func (f *RTTYModem) Demodulate(samples []float64) []byte {
 	}
 
 	return f.baudotSymbolizer.Desymbolize(asInts(words))
+}
+
+func (f *RTTYModem) DCD() float64 {
+	return 0.0 // todo
 }
 
 func (f *RTTYModem) getFuzzySymbol(sample float64) float64 {

@@ -9,8 +9,7 @@ type Config struct {
 }
 
 type Connections struct {
-	Sound   SoundConnection   `json:"sound"`
-	Control ControlConnection `json:"control"`
+	Sound SoundConnection `json:"sound"`
 }
 
 type SoundConnection struct {
@@ -18,12 +17,6 @@ type SoundConnection struct {
 	Port             int     `json:"port"`
 	InputSampleRate  float64 `json:"inputSampleRate"`
 	OutputSampleRate float64 `json:"outputSampleRate"`
-}
-
-type ControlConnection struct {
-	Enabled bool   `json:"enabled"`
-	Host    string `json:"host"`
-	Port    int    `json:"port"`
 }
 
 type Modulation struct {

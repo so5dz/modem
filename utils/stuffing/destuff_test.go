@@ -60,7 +60,33 @@ func TestBitDestuffer_every5ones(t *testing.T) {
 		result = append(result, bd.FeedBit(1)...)
 		result = append(result, feedMultiple(bd, 0, 3)...)
 
-		expectedResult := []byte{0b10101011, 0b10001000}
+		expectedResult := []byte{0b10101011, 0b01111110, 0b10001000}
+		assertByteArraysEqual(t, result, expectedResult)
+	})
+
+	t.Run("010101_01111110x2_10001000", func(t *testing.T) {
+		bd := newBitDestuffer()
+		bd.Reset()
+		result := make([]byte, 0)
+		result = append(result, bd.FeedBit(1)...)
+		result = append(result, bd.FeedBit(0)...)
+		result = append(result, bd.FeedBit(1)...)
+		result = append(result, bd.FeedBit(0)...)
+		result = append(result, bd.FeedBit(1)...)
+
+		result = append(result, bd.FeedBit(0)...)
+		result = append(result, feedMultiple(bd, 1, 6)...)
+		result = append(result, bd.FeedBit(0)...)
+
+		result = append(result, bd.FeedBit(0)...)
+		result = append(result, feedMultiple(bd, 1, 6)...)
+		result = append(result, bd.FeedBit(0)...)
+
+		result = append(result, bd.FeedBit(1)...)
+		result = append(result, feedMultiple(bd, 0, 6)...)
+		result = append(result, bd.FeedBit(1)...)
+
+		expectedResult := []byte{0b10101011, 0b01111110, 0b01111110, 0b10000001}
 		assertByteArraysEqual(t, result, expectedResult)
 	})
 }

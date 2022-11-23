@@ -65,6 +65,10 @@ func (bd *BitDestuffer) FeedBit(bit int) []byte {
 			bd.streak = 0
 			bd.bufferSize = 0
 			bd.state = BitDestufferState_Normal
+
+			// todo universal flag
+			optionalByte = append(optionalByte, 0b01111110)
+			bd.buffer = 0
 		}
 
 	}

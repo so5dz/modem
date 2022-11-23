@@ -8,11 +8,6 @@
             "port": 8611,
             "inputSampleRate": 24000,
             "outputSampleRate": 24000
-        },
-        "control": {
-            "enabled": false,
-            "host": "localhost",
-            "port": 8622
         }
     },
     "initialModulation": "bell202",
@@ -56,7 +51,7 @@
         {
             "name": "bell202",
             "modem": "bell202",
-            "center": 1600,
+            "center": 1700,
             "parameters": {}
         }
     ]

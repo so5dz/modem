@@ -3,8 +3,7 @@ package modem
 import (
 	"math"
 
-	"github.com/iskrapw/modem/stuffing"
-
+	"github.com/iskrapw/modem/utils/stuffing"
 	"github.com/tunabay/go-bitarray"
 )
 
@@ -26,17 +25,17 @@ func (f *Bell202Modem) Initialize(inputRate float64, outputRate float64, center 
 	f.bitDestuffer = stuffing.BitDestuffer{BreakEvery: 5, BreakBit: 1}
 
 	// better filter than bfskmodembase
-	sampleBPFHalfWidth := 720.0
-	f.sampleBPF.Setup(12, 0.5, inputRate, center-sampleBPFHalfWidth, center+sampleBPFHalfWidth)
+	sampleBPFHalfWidth := 800.0
+	f.sampleBPF.Setup(12, 0.3, inputRate, center-sampleBPFHalfWidth, center+sampleBPFHalfWidth)
 }
 
 func (f *Bell202Modem) Modulate(bytes []byte) []float64 {
 	output := make([]float64, 0)
 
 	f.bitStuffer.Start()
-	f.bitStuffer.PutMultipleFlags(4)
+	f.bitStuffer.PutMultipleFlags(8)
 	f.bitStuffer.PutBytes(bytes)
-	f.bitStuffer.PutMultipleFlags(1)
+	f.bitStuffer.PutMultipleFlags(2)
 	stuffedBits := f.bitStuffer.End()
 
 	frequency := 0

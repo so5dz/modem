@@ -7,7 +7,8 @@ import (
 	"math"
 	"os"
 
-	"github.com/iskrapw/modem/dsp"
+	dspbw "github.com/iskrapw/dsp/filter/butterworth"
+	dspch "github.com/iskrapw/dsp/filter/chebyshev"
 	"github.com/iskrapw/modem/utils"
 )
 
@@ -22,11 +23,11 @@ type BFSKModemBase struct {
 	toneGenerator       utils.ToneGen
 	iGenerator          utils.ToneGen
 	qGenerator          utils.ToneGen
-	iLPF                dsp.ButterworthLowPass
-	qLPF                dsp.ButterworthLowPass
-	valueLPF            dsp.ButterworthLowPass
-	valueLPF2           dsp.ButterworthLowPass
-	sampleBPF           dsp.ChebyshevBandPass
+	iLPF                dspbw.LowPass
+	qLPF                dspbw.LowPass
+	valueLPF            dspbw.LowPass
+	valueLPF2           dspbw.LowPass
+	sampleBPF           dspch.BandPass
 	phaseDeltaMax       float64
 	todoDebug           *os.File
 }
@@ -73,9 +74,7 @@ func (f *BFSKModemBase) getTone(time float64, bit int) []float64 {
 }
 
 func (f *BFSKModemBase) getFuzzySymbol(sample float64) float64 {
-	f.debugWrite(sample)
 	sample = f.sampleBPF.Filter(sample)
-
 	f.debugWrite(sample)
 
 	I := sample * f.iGenerator.Sample(f.center)
@@ -103,6 +102,11 @@ func (f *BFSKModemBase) getFuzzySymbol(sample float64) float64 {
 	return value
 }
 
+func (f *BFSKModemBase) DCD() float64 {
+	return 0.0 // todo
+}
+
+// todo remove
 func (f *BFSKModemBase) debugWrite(value float64) {
 	var buf [4]byte
 	binary.BigEndian.PutUint32(buf[:], math.Float32bits(float32(value)))
