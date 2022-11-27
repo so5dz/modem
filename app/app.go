@@ -3,7 +3,8 @@ package app
 import (
 	"github.com/so5dz/modem/config"
 	"github.com/so5dz/modem/modem"
-	"github.com/so5dz/network/tcp"
+	tcpc "github.com/so5dz/network/client/tcp"
+	tcps "github.com/so5dz/network/server/tcp"
 	"github.com/so5dz/utils/convert"
 )
 
@@ -19,8 +20,8 @@ type namedModem struct {
 type ModemApplication struct {
 	selectedModem        modem.Modem
 	availableModems      []namedModem
-	soundClient          tcp.Client
-	dataServer           tcp.Server
-	extraServer          tcp.Server
+	soundClient          tcpc.StreamClient
+	dataServer           tcps.StreamServer
+	extraServer          tcps.StreamServer
 	receivedSampleBuffer convert.ByteFloatBuffer
 }

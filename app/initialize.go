@@ -4,7 +4,6 @@ import (
 	"log"
 
 	"github.com/so5dz/modem/config"
-	"github.com/so5dz/network/tcp"
 )
 
 func (app *ModemApplication) Initialize(cfg config.Config) error {
@@ -27,18 +26,18 @@ func (app *ModemApplication) initializeConnections(cfg config.Config) {
 
 func (app *ModemApplication) initializeSoundClient(cfg config.Config) {
 	log.Println("Initializing sound client")
-	app.soundClient = tcp.NewClient(cfg.Connections.Sound.Host, cfg.Connections.Sound.Port, tcp.TCPConnectionMode_Stream)
+	app.soundClient.Initialize(cfg.Connections.Sound.Host, cfg.Connections.Sound.Port)
 	app.soundClient.OnReceive(app.onSoundReceived)
 }
 
 func (app *ModemApplication) initializeDataServer(cfg config.Config) {
 	log.Println("Initializing data server")
-	app.dataServer = tcp.NewServer(cfg.DataPort, tcp.TCPConnectionMode_Stream)
+	app.dataServer.Initialize(cfg.DataPort)
 	app.dataServer.OnReceive(app.onDataReceived)
 }
 
 func (app *ModemApplication) initializeExtraServer(cfg config.Config) {
 	log.Println("Initializing extra server")
-	app.extraServer = tcp.NewServer(cfg.ExtraPort, tcp.TCPConnectionMode_Message)
+	app.extraServer.Initialize(cfg.ExtraPort)
 	app.extraServer.OnReceive(app.onExtraCommand)
 }
