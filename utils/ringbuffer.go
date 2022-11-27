@@ -1,6 +1,6 @@
 package utils
 
-import misc "github.com/iskrapw/utils/misc"
+import misc "github.com/so5dz/utils/misc"
 
 type bufferInUse int
 

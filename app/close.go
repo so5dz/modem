@@ -3,7 +3,7 @@ package app
 import (
 	"log"
 
-	"github.com/iskrapw/utils/misc"
+	"github.com/so5dz/utils/misc"
 )
 
 func (app *ModemApplication) Close() error {

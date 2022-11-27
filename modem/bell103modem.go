@@ -1,6 +1,6 @@
 package modem
 
-import "github.com/iskrapw/modem/utils/uart"
+import "github.com/so5dz/modem/utils/uart"
 
 type Bell103Modem struct {
 	BFSKModemBase

@@ -4,9 +4,9 @@ import (
 	"log"
 	"strings"
 
-	"github.com/iskrapw/modem/config"
-	"github.com/iskrapw/modem/modem"
-	"github.com/iskrapw/utils/misc"
+	"github.com/so5dz/modem/config"
+	"github.com/so5dz/modem/modem"
+	"github.com/so5dz/utils/misc"
 )
 
 func (app *ModemApplication) SetModem(name string) error {

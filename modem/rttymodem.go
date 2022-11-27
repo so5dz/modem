@@ -3,9 +3,9 @@ package modem
 import (
 	"math"
 
-	"github.com/iskrapw/modem/utils"
-	"github.com/iskrapw/modem/utils/baudot"
-	"github.com/iskrapw/modem/utils/uart"
+	"github.com/so5dz/modem/utils"
+	"github.com/so5dz/modem/utils/baudot"
+	"github.com/so5dz/modem/utils/uart"
 )
 
 type RTTYModem struct {

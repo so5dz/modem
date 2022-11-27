@@ -3,8 +3,8 @@ package app
 import (
 	"log"
 
-	"github.com/iskrapw/network/tcp"
-	"github.com/iskrapw/utils/convert"
+	"github.com/so5dz/network/tcp"
+	"github.com/so5dz/utils/convert"
 )
 
 func (app *ModemApplication) onSoundReceived(sampleBytes []byte) {

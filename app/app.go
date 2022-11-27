@@ -1,10 +1,10 @@
 package app
 
 import (
-	"github.com/iskrapw/modem/config"
-	"github.com/iskrapw/modem/modem"
-	"github.com/iskrapw/network/tcp"
-	"github.com/iskrapw/utils/convert"
+	"github.com/so5dz/modem/config"
+	"github.com/so5dz/modem/modem"
+	"github.com/so5dz/network/tcp"
+	"github.com/so5dz/utils/convert"
 )
 
 const _ModemInstantiationError = "unable to instantiate modem"

@@ -3,13 +3,12 @@ package modem
 import (
 	// "encoding/binary"
 
-	"encoding/binary"
 	"math"
 	"os"
 
-	dspbw "github.com/iskrapw/dsp/filter/butterworth"
-	dspch "github.com/iskrapw/dsp/filter/chebyshev"
-	"github.com/iskrapw/modem/utils"
+	dspbw "github.com/so5dz/dsp/filter/butterworth"
+	dspch "github.com/so5dz/dsp/filter/chebyshev"
+	"github.com/so5dz/modem/utils"
 )
 
 type BFSKModemBase struct {
@@ -108,7 +107,7 @@ func (f *BFSKModemBase) DCD() float64 {
 
 // todo remove
 func (f *BFSKModemBase) debugWrite(value float64) {
-	var buf [4]byte
-	binary.BigEndian.PutUint32(buf[:], math.Float32bits(float32(value)))
-	f.todoDebug.Write(buf[:])
+	// var buf [4]byte
+	// binary.BigEndian.PutUint32(buf[:], math.Float32bits(float32(value)))
+	// f.todoDebug.Write(buf[:])
 }

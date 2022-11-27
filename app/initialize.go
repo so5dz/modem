@@ -3,8 +3,8 @@ package app
 import (
 	"log"
 
-	"github.com/iskrapw/modem/config"
-	"github.com/iskrapw/network/tcp"
+	"github.com/so5dz/modem/config"
+	"github.com/so5dz/network/tcp"
 )
 
 func (app *ModemApplication) Initialize(cfg config.Config) error {

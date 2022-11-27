@@ -3,7 +3,7 @@ package modem
 import (
 	"math"
 
-	"github.com/iskrapw/modem/utils/stuffing"
+	"github.com/so5dz/modem/utils/stuffing"
 	"github.com/tunabay/go-bitarray"
 )
 
